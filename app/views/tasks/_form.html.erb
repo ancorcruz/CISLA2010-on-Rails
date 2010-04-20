@@ -1,0 +1,23 @@
+<% form_for(@task) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :due_date %><br />
+    <%= f.datetime_select :due_date %>
+  </p>
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.label :proyect %><br />
+    <%= f.select :proyect_id, Proyect.all.collect { |p| [p.name, p.to_param] }, {:prompt => "Selecciona un proyecto"} %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>
